@@ -1,0 +1,24 @@
+#!/bin/bash -x
+num1=$((RANDOM%900+100));
+num2=$((RANDOM%900+100));
+num3=$((RANDOM%900+100));
+num4=$((RANDOM%900+100));
+num5=$((RANDOM%900+100));
+
+max=0;
+min=10000; #A 5 digit num greater than all random values.
+for i in 1 2 3 4 5
+do
+		if [ num$i -gt max ]
+		then 
+				max=num$i;
+		elif [ num$i -lt min ]
+		then 
+				min=num$i;
+		 
+		fi
+done
+
+echo "max = $max , min = $min";
+
+

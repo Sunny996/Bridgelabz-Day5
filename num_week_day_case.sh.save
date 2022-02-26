@@ -1,0 +1,13 @@
+#!/bin/bash -x
+
+read -p "Enter no from 0-6" a;
+
+case $a in 
+		0)
+		echo "Sunday";
+		;;
+  0)
+      echo "Sunday";
+      ;;  0)
+      echo "Sunday";
+      ;;

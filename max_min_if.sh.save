@@ -1,0 +1,54 @@
+#!/bin/bash -x 
+a=$1;
+b=$2;
+c=$3;
+(( $(echo "$i $max" | awk '{print ($1 > $2)}') ))
+x=$(( a + $(( b * c )) ));
+ 
+y=$(( c + $(( a % b )) ));
+
+z=`echo $a $b $c | awk '{print $3 + $1/$2}'`;
+
+t=$(( c + $(( a * b )) ));
+
+max=0;
+min=$x;
+for i in $x $y $z $t
+do 
+	if (( $(echo "$i $max" | awk '{print ($1 > $2)}') ))
+#	if [ "$i" -ge "$max" ]
+	then max=$i;
+	elif (( $(echo "$i $min" | awk '{print ($1 < $2)}') ))
+#	elif [ "$i" -le "$min" ]
+	then min=$i;
+	fi
+done
+
+if [ $x -eq $max ]
+then 
+	echo "a+b*c is maximum"; 
+elif [ $x -eq $min ]
+then 
+	echo "a+b*c is minimum";
+fi
+if [ $y -eq $max ]
+then 
+   echo "a%b+c is maximum"; 
+elif [ $y -eq $min ]
+then 
+   echo "a%b+c is minimum";
+fi
+if [ $z -eq $max ]
+then 
+   echo "c+a/b is maximum"; 
+elif [ $z -eq $min ]
+then 
+   echo "c+a/b is minimum";
+fi
+if [ $t -eq $max ]
+then 
+   echo "a*b+c is maximum"; 
+elif [ $t -eq $min ]
+then 
+   echo "a*b+c is minimum";
+fi
